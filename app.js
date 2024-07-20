@@ -118,7 +118,7 @@ function takeCommand(message) {
     window.open("Calculator:///");
     const finalText = "Abrindo Calculadora";
     speak(finalText);
-  } else if (message.includes("jogar akinator")) {
+  } else if (message.includes("jogar adivinhe o numero")) {
     startGuessingGame();
   } else {
     window.open(
@@ -145,7 +145,7 @@ function startGuessingGame() {
 
 function guessNumber() {
   speak(
-    `Bem vindo ao jogo do Akinator. Pense em um número entre ${lowerLimit} e ${upperLimit}.`
+    `Bem vindo ao jogo do Akinator dos numeros. Pense em um número entre ${lowerLimit} e ${upperLimit}.`
   );
   content.textContent = `Pense em um número entre ${lowerLimit} e ${upperLimit}.`;
   if (lowerLimit > upperLimit) {
