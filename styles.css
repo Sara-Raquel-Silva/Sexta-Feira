@@ -11,6 +11,8 @@
   min-height: 100vh;
   position: relative;
   width: 100%;
+  max-width: 1200px; /* Limita a largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
   background: #000;
   display: flex;
   flex-direction: column;
@@ -30,7 +32,8 @@
 }
 
 .main .image-container .image img {
-  width: 350px;
+  width: 100%;
+  max-width: 350px; /* Limita a largura máxima da imagem */
   align-items: center;
 }
 
@@ -51,7 +54,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 80%; /* Ajusta a largura do container de entrada */
+  max-width: 400px; /* Limita a largura máxima do container de entrada */
   height: 50px;
   border-radius: 20px;
   background: rgb(202 253 255 / 50%);
