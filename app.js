@@ -51,6 +51,7 @@ btn.addEventListener("click", () => {
     }
   }
   window.speechSynthesis.cancel();
+  speak("ouvindo...");
   content.textContent = "Ouvindo...";
   recognition.start();
 });
@@ -117,8 +118,6 @@ function takeCommand(message) {
     window.open("Calculator:///");
     const finalText = "Abrindo Calculadora";
     speak(finalText);
-  } else if (message.includes("jogar adivinhe o numero")) {
-    startGuessingGame();
   } else {
     window.open(
       `https://www.google.com/search?q=${message.replace(" ", "+")}`,
@@ -129,48 +128,3 @@ function takeCommand(message) {
     speak(finalText);
   }
 }
-
-let lowerLimit = 1;
-let upperLimit = 100;
-let attempts = 0;
-let guess;
-
-function startGuessingGame() {
-  lowerLimit = 1;
-  upperLimit = 100;
-  attempts = 0;
-  guessNumber();
-}
-
-function guessNumber() {
-  speak(
-    `Bem vindo ao jogo do Akinator dos numeros. Pense em um número entre ${lowerLimit} e ${upperLimit}.`
-  );
-  content.textContent = `Pense em um número entre ${lowerLimit} e ${upperLimit}.`;
-  if (lowerLimit > upperLimit) {
-    speak("Algo deu errado. Vamos tentar novamente.");
-    return;
-  }
-  guess = Math.floor((lowerLimit + upperLimit) / 2);
-  attempts++;
-  speak(`O número é ${guess}?`);
-  content.textContent = `O número é ${guess}? Responda com "certo", "muito baixo" ou "muito alto".`;
-}
-
-recognition.onresult = (event) => {
-  const currentIndex = event.resultIndex;
-  const transcript = event.results[currentIndex][0].transcript.toLowerCase();
-  content.textContent = transcript;
-
-  if (transcript.includes("certo")) {
-    speak(`Excelente! Adivinhei o número em ${attempts} tentativas.`);
-  } else if (transcript.includes("muito baixo")) {
-    lowerLimit = guess + 1;
-    guessNumber();
-  } else if (transcript.includes("muito alto")) {
-    upperLimit = guess - 1;
-    guessNumber();
-  } else {
-    takeCommand(transcript);
-  }
-};
