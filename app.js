@@ -4,9 +4,9 @@ const content = document.querySelector(".content");
 function speak(text) {
   const text_speak = new SpeechSynthesisUtterance(text);
 
-  text_speak.rate = 2;
+  text_speak.rate = 1;
   text_speak.volume = 2;
-  text_speak.pitch = 2;
+  text_speak.pitch = 1;
 
   window.speechSynthesis.speak(text_speak);
 }
@@ -47,10 +47,10 @@ btn.addEventListener("click", () => {
 
 function takeCommand(message) {
   if (message.includes("oi") || message.includes("olá")) {
-    speak("Olá senhor, como posso ajudar?");
+    speak("Olá Sara Raquel, como posso ajudar?");
   } else if (message.includes("abrir google")) {
     window.open("https://google.com", "_blank");
-    speak("Abrindo Google...");
+    speak("Abrindo Pai dos burros...");
   } else if (message.includes("abrir youtube")) {
     window.open("https://youtube.com", "_blank");
     speak("Abrindo Youtube...");
@@ -66,7 +66,9 @@ function takeCommand(message) {
       `https://www.google.com/search?q=${message.replace(" ", "+")}`,
       "_blank"
     );
-    const finalText = "Isto é o que encontrei na internet sobre " + message;
+    const finalText =
+      "Isto é o que encontrei na internet sobre, se ta certo eu ja nao sei lhe informar " +
+      message;
     speak(finalText);
   } else if (message.includes("wikipedia")) {
     window.open(
@@ -82,7 +84,7 @@ function takeCommand(message) {
       hour: "numeric",
       minute: "numeric",
     });
-    const finalText = "A hora atual é " + time;
+    const finalText = "Sao exatamente " + time;
     speak(finalText);
   } else if (message.includes("data")) {
     const date = new Date().toLocaleString(undefined, {

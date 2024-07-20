@@ -58,7 +58,7 @@ body {
 }
 
 .main .image-container p {
-  color: #324042;
+  color: #00bcd4;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -89,11 +89,29 @@ body {
 
 .main .input .talk i {
   font-size: 20px;
-  color: #aed0d0;
+  color: #00bcd4;
 }
 
 .main .input .content {
-  color: #aed0d0;
+  color: #00bcd4;
   font-size: 15px;
   margin-right: 20px;
+}
+
+.main .button {
+  background: #4e6e79;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.main .button i {
+  margin-right: 10px;
 }
