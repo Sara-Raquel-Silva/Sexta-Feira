@@ -77,6 +77,9 @@ function takeCommand(message) {
   } else if (message.includes("abrir twitter")) {
     window.open("https://x.com", "_blank");
     speak("Ninguem merece chamar esta obra de arte de X nao é mesmo?...");
+  } else if (message.includes("abrir spotify")) {
+    window.open("https://open.spotify.com", "_blank");
+    speak("Seu pedido é uma ordem, abrindo spotify...");
   } else if (
     message.includes("o que é") ||
     message.includes("quem é") ||
