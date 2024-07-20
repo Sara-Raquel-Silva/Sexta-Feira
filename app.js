@@ -3,9 +3,8 @@ const content = document.querySelector(".content");
 
 function speak(text) {
   const text_speak = new SpeechSynthesisUtterance(text);
-
   text_speak.rate = 1;
-  text_speak.volume = 1;
+  text_speak.volume = 1; // Volume deve ser entre 0 e 1
   text_speak.pitch = 1;
 
   window.speechSynthesis.speak(text_speak);
@@ -41,8 +40,21 @@ recognition.onresult = (event) => {
 };
 
 btn.addEventListener("click", () => {
-  window.speechSynthesis.cancel();
-  speak("Ouvindo...");
+  // Resume audio context if suspended
+  if (
+    typeof window.AudioContext !== "undefined" ||
+    typeof window.webkitAudioContext !== "undefined"
+  ) {
+    const audioContext = new (window.AudioContext ||
+      window.webkitAudioContext)();
+    if (audioContext.state === "suspended") {
+      audioContext.resume();
+    }
+  }
+
+  // Initialize speech synthesis on user interaction
+  window.speechSynthesis.cancel(); // Reset any ongoing speech
+  speak("Ouvindo..."); // This will ensure speech synthesis is initialized properly
   content.textContent = "Ouvindo...";
   recognition.start();
 });
