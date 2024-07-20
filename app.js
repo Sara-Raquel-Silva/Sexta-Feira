@@ -41,6 +41,8 @@ recognition.onresult = (event) => {
 };
 
 btn.addEventListener("click", () => {
+  window.speechSynthesis.cancel();
+  speak("Ouvindo...");
   content.textContent = "Ouvindo...";
   recognition.start();
 });
