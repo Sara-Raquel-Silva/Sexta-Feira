@@ -7,12 +7,25 @@
   font-family: "Roboto Mono", monospace;
 }
 
-.main {
-  min-height: 100vh;
-  position: relative;
+html,
+body {
   width: 100%;
-  max-width: 1200px; /* Limita a largura máxima do conteúdo */
-  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.main {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
   background: #000;
   display: flex;
   flex-direction: column;
@@ -33,7 +46,7 @@
 
 .main .image-container .image img {
   width: 100%;
-  max-width: 350px; /* Limita a largura máxima da imagem */
+  max-width: 350px;
   align-items: center;
 }
 
@@ -54,8 +67,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%; /* Ajusta a largura do container de entrada */
-  max-width: 400px; /* Limita a largura máxima do container de entrada */
+  width: 100%;
+  max-width: 400px;
   height: 50px;
   border-radius: 20px;
   background: rgb(202 253 255 / 50%);
