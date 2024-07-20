@@ -4,9 +4,9 @@ const content = document.querySelector(".content");
 function speak(text) {
   const text_speak = new SpeechSynthesisUtterance(text);
 
-  text_speak.rate = 1;
-  text_speak.volume = 1;
-  text_speak.pitch = 1;
+  text_speak.rate = 2;
+  text_speak.volume = 2;
+  text_speak.pitch = 2;
 
   window.speechSynthesis.speak(text_speak);
 }
@@ -16,16 +16,16 @@ function wishMe() {
   var hour = day.getHours();
 
   if (hour >= 0 && hour < 12) {
-    speak("Good Morning Boss...");
+    speak("Bom dia, chefe...");
   } else if (hour >= 12 && hour < 17) {
-    speak("Good Afternoon Master...");
+    speak("Boa tarde, mestre...");
   } else {
-    speak("Good Evening Sir...");
+    speak("Boa noite, senhor...");
   }
 }
 
 window.addEventListener("load", () => {
-  speak("Initializing JARVIS...");
+  speak("Inicializando SEXTA-FEIRA...");
   wishMe();
 });
 
@@ -41,67 +41,67 @@ recognition.onresult = (event) => {
 };
 
 btn.addEventListener("click", () => {
-  content.textContent = "Listening...";
+  content.textContent = "Ouvindo...";
   recognition.start();
 });
 
 function takeCommand(message) {
-  if (message.includes("hey") || message.includes("hello")) {
-    speak("Hello Sir, How May I Help You?");
-  } else if (message.includes("open google")) {
+  if (message.includes("oi") || message.includes("olá")) {
+    speak("Olá senhor, como posso ajudar?");
+  } else if (message.includes("abrir google")) {
     window.open("https://google.com", "_blank");
-    speak("Opening Google...");
-  } else if (message.includes("open youtube")) {
+    speak("Abrindo Google...");
+  } else if (message.includes("abrir youtube")) {
     window.open("https://youtube.com", "_blank");
-    speak("Opening Youtube...");
-  } else if (message.includes("open facebook")) {
+    speak("Abrindo Youtube...");
+  } else if (message.includes("abrir facebook")) {
     window.open("https://facebook.com", "_blank");
-    speak("Opening Facebook...");
+    speak("Abrindo Facebook...");
   } else if (
-    message.includes("what is") ||
-    message.includes("who is") ||
-    message.includes("what are")
+    message.includes("o que é") ||
+    message.includes("quem é") ||
+    message.includes("o que são")
   ) {
     window.open(
       `https://www.google.com/search?q=${message.replace(" ", "+")}`,
       "_blank"
     );
-    const finalText =
-      "This is what I found on the internet regarding " + message;
+    const finalText = "Isto é o que encontrei na internet sobre " + message;
     speak(finalText);
   } else if (message.includes("wikipedia")) {
     window.open(
-      `https://en.wikipedia.org/wiki/${message
+      `https://pt.wikipedia.org/wiki/${message
         .replace("wikipedia", "")
         .trim()}`,
       "_blank"
     );
-    const finalText = "This is what I found on Wikipedia regarding " + message;
+    const finalText = "Isto é o que encontrei na Wikipedia sobre " + message;
     speak(finalText);
-  } else if (message.includes("time")) {
+  } else if (message.includes("horas")) {
     const time = new Date().toLocaleString(undefined, {
       hour: "numeric",
       minute: "numeric",
     });
-    const finalText = "The current time is " + time;
+    const finalText = "A hora atual é " + time;
     speak(finalText);
-  } else if (message.includes("date")) {
+  } else if (message.includes("data")) {
     const date = new Date().toLocaleString(undefined, {
       month: "short",
       day: "numeric",
     });
-    const finalText = "Today's date is " + date;
+    const finalText = "A data de hoje é " + date;
     speak(finalText);
-  } else if (message.includes("calculator")) {
+  } else if (message.includes("calculadora")) {
     window.open("Calculator:///");
-    const finalText = "Opening Calculator";
+    const finalText = "Abrindo Calculadora";
     speak(finalText);
   } else {
     window.open(
       `https://www.google.com/search?q=${message.replace(" ", "+")}`,
       "_blank"
     );
-    const finalText = "I found some information for " + message + " on Google";
+    const finalText =
+      "Encontrei algumas informações sobre " + message + " no Google";
     speak(finalText);
   }
 }
