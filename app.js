@@ -16,11 +16,11 @@ function wishMe() {
   var hour = day.getHours();
 
   if (hour >= 0 && hour < 12) {
-    speak("Bom dia, chefe...");
+    speak("Bom dia, querida...");
   } else if (hour >= 12 && hour < 17) {
     speak("Boa tarde, mestre...");
   } else {
-    speak("Boa noite, senhor...");
+    speak("Boa noite, senhora...");
   }
 }
 
@@ -47,7 +47,7 @@ btn.addEventListener("click", () => {
 
 function takeCommand(message) {
   if (message.includes("oi") || message.includes("olá")) {
-    speak("Olá Sara Raquel, como posso ajudar?");
+    speak("Olá Sara Raquel, em que me encomodas?");
   } else if (message.includes("abrir google")) {
     window.open("https://google.com", "_blank");
     speak("Abrindo Pai dos burros...");
@@ -56,7 +56,13 @@ function takeCommand(message) {
     speak("Abrindo Youtube...");
   } else if (message.includes("abrir facebook")) {
     window.open("https://facebook.com", "_blank");
-    speak("Abrindo Facebook...");
+    speak("Serio que voce ainda usa o Facebook?...");
+  } else if (message.includes("abrir instagram")) {
+    window.open("https://instagram.com", "_blank");
+    speak("Abrindo instagram...");
+  } else if (message.includes("abrir twitter")) {
+    window.open("https://x.com", "_blank");
+    speak("Ninguem merece chamar esta obra de arte de X nao é mesmo?...");
   } else if (
     message.includes("o que é") ||
     message.includes("quem é") ||
@@ -91,7 +97,7 @@ function takeCommand(message) {
       month: "short",
       day: "numeric",
     });
-    const finalText = "A data de hoje é " + date;
+    const finalText = "Hoje é dia " + date;
     speak(finalText);
   } else if (message.includes("calculadora")) {
     window.open("Calculator:///");
