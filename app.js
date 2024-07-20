@@ -40,7 +40,6 @@ recognition.onresult = (event) => {
 };
 
 btn.addEventListener("click", () => {
-  // Resume audio context if suspended
   if (
     typeof window.AudioContext !== "undefined" ||
     typeof window.webkitAudioContext !== "undefined"
@@ -51,17 +50,15 @@ btn.addEventListener("click", () => {
       audioContext.resume();
     }
   }
-
-  // Initialize speech synthesis on user interaction
-  window.speechSynthesis.cancel(); // Reset any ongoing speech
-  speak("Ouvindo..."); // This will ensure speech synthesis is initialized properly
+  window.speechSynthesis.cancel();
+  speak("Ouvindo...");
   content.textContent = "Ouvindo...";
   recognition.start();
 });
 
 function takeCommand(message) {
   if (message.includes("oi") || message.includes("olá")) {
-    speak("Olá Sara Raquel, em que me encomodas?");
+    speak("Olá Sara Raquel, em que posso ser util?");
   } else if (message.includes("abrir google")) {
     window.open("https://google.com", "_blank");
     speak("Abrindo Pai dos burros...");
@@ -78,7 +75,10 @@ function takeCommand(message) {
     window.open("https://x.com", "_blank");
     speak("Ninguem merece chamar esta obra de arte de X nao é mesmo?...");
   } else if (message.includes("abrir spotify")) {
-    window.open("https://open.spotify.com", "_blank");
+    window.open(
+      "https://open.spotify.com/playlist/28aSpx8ZgdItnwJEkARSQm",
+      "_blank"
+    );
     speak("Seu pedido é uma ordem, abrindo spotify...");
   } else if (
     message.includes("o que é") ||
@@ -89,9 +89,7 @@ function takeCommand(message) {
       `https://www.google.com/search?q=${message.replace(" ", "+")}`,
       "_blank"
     );
-    const finalText =
-      "Encontrei algumas coisas na internet sobre " +
-      message;
+    const finalText = "Encontrei algumas coisas na internet sobre " + message;
     speak(finalText);
   } else if (message.includes("wikipedia")) {
     window.open(
