@@ -144,6 +144,10 @@ function startGuessingGame() {
 }
 
 function guessNumber() {
+  speak(
+    `Bem vindo ao jogo do Akinator. Pense em um número entre ${lowerLimit} e ${upperLimit}.`
+  );
+  content.textContent = `Pense em um número entre ${lowerLimit} e ${upperLimit}.`;
   if (lowerLimit > upperLimit) {
     speak("Algo deu errado. Vamos tentar novamente.");
     return;
