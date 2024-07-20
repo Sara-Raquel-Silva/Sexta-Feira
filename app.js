@@ -90,7 +90,7 @@ function takeCommand(message) {
       "_blank"
     );
     const finalText =
-      "Isto é o que encontrei na internet sobre, se ta certo eu ja nao sei lhe informar " +
+      "Encontrei algumas coisas na internet sobre " +
       message;
     speak(finalText);
   } else if (message.includes("wikipedia")) {

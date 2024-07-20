@@ -34,10 +34,11 @@
 }
 
 .main .image-container h1 {
-  color: #00bcd4;
+  color: #13bfd6;
   text-align: center;
   margin-bottom: 10px;
   font-size: 40px;
+  cursor: default;
 }
 
 .main .image-container p {
@@ -53,7 +54,8 @@
   width: 40vw;
   height: 50px;
   border-radius: 20px;
-  background: rgb(202 253 255 / 50%);
+  background: rgba(169, 232, 234, 0.5);
+  cursor: default;
 }
 
 .main .input .talk {
